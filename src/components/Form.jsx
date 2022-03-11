@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import useSelectMonedas from '../hooks/useSelectMonedas'
 import { monedas } from '../data/modenas'
@@ -24,6 +24,8 @@ import { monedas } from '../data/modenas'
 
 const Form = () => {
 
+    const [criptos, setCriptos] = useState([])
+
     const [ moneda, SelectMonedas ] = useSelectMonedas('Elige tu moneda', monedas);
 
     useEffect(() => {
@@ -32,7 +34,16 @@ const Form = () => {
 
             const respuesta = await fetch(url)
             const resultado = await respuesta.json()
-            console.log(resultado.Data);
+            
+            const arrayCriptos = resultado.Data.map( cripto => {
+
+                const objeto = {
+                    id: cripto.CoinInfo.Name,
+                    nombre: cripto.CoinInfo.FullName
+                }
+                return objeto
+            })
+            setCriptos(arrayCriptos)
         }
         consultarAPI();
     }, [])
