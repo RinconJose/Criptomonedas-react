@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import useSelectMonedas from '../hooks/useSelectMonedas'
+
+const [ SelectMonedas ] = useSelectMonedas();
+
+SelectMonedas();
 
 const Form = () => {
 
