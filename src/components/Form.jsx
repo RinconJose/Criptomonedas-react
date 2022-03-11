@@ -2,9 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import useSelectMonedas from '../hooks/useSelectMonedas'
 
-const [ SelectMonedas ] = useSelectMonedas();
-
-SelectMonedas();
+const [ SelectMonedas ] = useSelectMonedas('Elige tu moneda');
 
 const Form = () => {
 
@@ -28,6 +26,9 @@ const Form = () => {
 
     return (
         <form>
+
+            <SelectMonedas />
+
             <InputSubmit 
                 type="submit" 
                 value="Cotizar" 
