@@ -23,7 +23,7 @@ import { monedas } from '../data/modenas'
         }
     `
 
-const Form = () => {
+const Form = ({setMonedas}) => {
 
     const [criptos, setCriptos] = useState([])
     const [error, setError] = useState(false)
@@ -64,6 +64,10 @@ const Form = () => {
         }
 
         setError(false);
+        setMonedas({
+            moneda,
+            criptomoneda
+        })
     }
 
     return (
