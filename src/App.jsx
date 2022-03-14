@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import Form from './components/Form'
+import Resultado from './components/Resultado'
 import ImagenCripto from './img/imagen-criptos.png'
 
 const Container = styled.div`
@@ -72,6 +73,8 @@ function App() {
         <Form 
           setMonedas={setMonedas}
         />
+
+        {resultado.PRICE && <Resultado resultado={resultado}/>}
       </div>
     </Container>
   )
